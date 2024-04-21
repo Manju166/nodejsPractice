@@ -2,6 +2,7 @@
 const express = require('express')
 const app = express()
 
+require("./model/index")
 app.set('view engine','ejs')
 
 app.get('/',(req,res)=>{
@@ -17,6 +18,6 @@ app.get("/blog/edit",(req,res)=>{
     res.render("editblog")
 })
 
-app.listen(3000,()=>{
-    console.log("Server has started at 3000")
+app.listen(4000,()=>{
+    console.log("Server has started at 4000")
 })
