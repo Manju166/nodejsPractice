@@ -7,7 +7,6 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   host: dbConfig.HOST,
   dialect: dbConfig.dialect,
   operatorsAliases: false,
-  
   pool: {
     max: dbConfig.pool.max,
     min: dbConfig.pool.min,
@@ -27,12 +26,11 @@ sequelize
 
 const db = {};
 
-db.blogs = require("./blogmodel")(sequelize,DataTypes)
-db.users = require('./userModel')(sequelize,DataTypes)
+db.blogs = require('./blogModel')(sequelize,DataTypes)
+// db.users = require('./userModel')(sequelize,DataTypes)
 
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
-
 db.sequelize.sync({ force: false}).then(() => {
   console.log("yes re-sync done");
 });
